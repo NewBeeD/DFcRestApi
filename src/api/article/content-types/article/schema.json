@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "article"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "MEN",
+        "WOMEN",
+        "ACADEMY",
+        "FEATURE",
+        "INTERNATIONAL",
+        "UPDATE",
+        "DEVELOPMENT",
+        "ANNOUNCEMENT"
+      ],
+      "required": true
+    },
+    "headline": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "video": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

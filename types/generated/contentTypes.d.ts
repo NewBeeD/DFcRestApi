@@ -788,6 +788,229 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiArticleArticle extends Schema.CollectionType {
+  collectionName: 'articles';
+  info: {
+    singularName: 'article';
+    pluralName: 'articles';
+    displayName: 'article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    content: Attribute.Blocks;
+    author: Attribute.String & Attribute.Required;
+    category: Attribute.Enumeration<
+      [
+        'MEN',
+        'WOMEN',
+        'ACADEMY',
+        'FEATURE',
+        'INTERNATIONAL',
+        'UPDATE',
+        'DEVELOPMENT',
+        'ANNOUNCEMENT'
+      ]
+    > &
+      Attribute.Required;
+    headline: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    video: Attribute.String;
+    image: Attribute.Media<'images' | 'videos' | 'audios', true> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFixtureFixture extends Schema.CollectionType {
+  collectionName: 'fixtures';
+  info: {
+    singularName: 'fixture';
+    pluralName: 'fixtures';
+    displayName: 'fixture';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    home_team: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'CCCUL Dublanc FC'>;
+    away_team: Attribute.String & Attribute.Required;
+    match_date: Attribute.DateTime & Attribute.Required;
+    home_team_score: Attribute.Integer;
+    away_team_score: Attribute.Integer;
+    venue: Attribute.Enumeration<
+      [
+        'Stock Farm Technical Center',
+        'Almond Park',
+        "Benjamin's Park",
+        'Laplaine Playing Field',
+        'Windsor Park'
+      ]
+    > &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::fixture.fixture',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::fixture.fixture',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGalleryGallery extends Schema.CollectionType {
+  collectionName: 'galleries';
+  info: {
+    singularName: 'gallery';
+    pluralName: 'galleries';
+    displayName: 'gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text;
+    images: Attribute.Media<'images', true> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiJerseyJersey extends Schema.CollectionType {
+  collectionName: 'jerseys';
+  info: {
+    singularName: 'jersey';
+    pluralName: 'jerseys';
+    displayName: 'jersey';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    price: Attribute.Decimal & Attribute.Required;
+    stock: Attribute.Integer & Attribute.Required;
+    category: Attribute.Enumeration<
+      ['Male Jersey', 'Female Jersey', 'Children Jersey', 'Non Jersey']
+    > &
+      Attribute.Required;
+    image: Attribute.Media<'images', true>;
+    description: Attribute.Text;
+    color: Attribute.String;
+    product_details: Attribute.Text;
+    care: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::jersey.jersey',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::jersey.jersey',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPlayerPlayer extends Schema.CollectionType {
+  collectionName: 'players';
+  info: {
+    singularName: 'player';
+    pluralName: 'players';
+    displayName: 'player';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstname: Attribute.String & Attribute.Required;
+    lastname: Attribute.String & Attribute.Required;
+    birth_date: Attribute.Date & Attribute.Required;
+    position: Attribute.Enumeration<
+      ['CB', 'RB', 'LB', 'CDM', 'CM', 'CAM', 'RW', 'LW', 'ST', 'CF']
+    >;
+    gender: Attribute.Enumeration<['MALE', 'FEMALE']> & Attribute.Required;
+    league: Attribute.Enumeration<
+      [
+        'PREMIER_LEAGUE_MEN',
+        'DIVISION_ONE_MEN',
+        'UNDER_21_MEN',
+        'WOMEN',
+        'ACADEMY'
+      ]
+    > &
+      Attribute.Required;
+    foot: Attribute.Enumeration<['RIGHT', 'LEFT']>;
+    kit: Attribute.Integer;
+    height: Attribute.Decimal;
+    weight: Attribute.Decimal;
+    image: Attribute.Media<'images'>;
+    player_bio: Attribute.Text;
+    stats: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::player.player',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::player.player',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -806,6 +1029,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::article.article': ApiArticleArticle;
+      'api::fixture.fixture': ApiFixtureFixture;
+      'api::gallery.gallery': ApiGalleryGallery;
+      'api::jersey.jersey': ApiJerseyJersey;
+      'api::player.player': ApiPlayerPlayer;
     }
   }
 }

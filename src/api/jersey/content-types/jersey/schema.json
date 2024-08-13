@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jerseys",
+  "info": {
+    "singularName": "jersey",
+    "pluralName": "jerseys",
+    "displayName": "jersey"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "stock": {
+      "type": "integer",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Male Jersey",
+        "Female Jersey",
+        "Children Jersey",
+        "Non Jersey"
+      ],
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "color": {
+      "type": "string"
+    },
+    "product_details": {
+      "type": "text"
+    },
+    "care": {
+      "type": "string"
+    }
+  }
+}
