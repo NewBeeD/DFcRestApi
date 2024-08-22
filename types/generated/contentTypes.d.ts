@@ -966,6 +966,7 @@ export interface ApiPlayerPlayer extends Schema.CollectionType {
     singularName: 'player';
     pluralName: 'players';
     displayName: 'player';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -975,7 +976,7 @@ export interface ApiPlayerPlayer extends Schema.CollectionType {
     lastname: Attribute.String & Attribute.Required;
     birth_date: Attribute.Date & Attribute.Required;
     position: Attribute.Enumeration<
-      ['CB', 'RB', 'LB', 'CDM', 'CM', 'CAM', 'RW', 'LW', 'ST', 'CF']
+      ['CB', 'RB', 'LB', 'CDM', 'CM', 'CAM', 'RW', 'LW', 'ST', 'CF', 'GK']
     >;
     gender: Attribute.Enumeration<['MALE', 'FEMALE']> & Attribute.Required;
     league: Attribute.Enumeration<

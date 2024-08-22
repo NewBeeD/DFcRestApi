@@ -4,7 +4,8 @@
   "info": {
     "singularName": "player",
     "pluralName": "players",
-    "displayName": "player"
+    "displayName": "player",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -35,7 +36,8 @@
         "RW",
         "LW",
         "ST",
-        "CF"
+        "CF",
+        "GK"
       ]
     },
     "gender": {
@@ -74,12 +76,12 @@
       "type": "decimal"
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": false
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "player_bio": {
       "type": "text"
