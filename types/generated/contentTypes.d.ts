@@ -847,6 +847,7 @@ export interface ApiFixtureFixture extends Schema.CollectionType {
     singularName: 'fixture';
     pluralName: 'fixtures';
     displayName: 'fixture';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -867,6 +868,12 @@ export interface ApiFixtureFixture extends Schema.CollectionType {
         'Laplaine Playing Field',
         'Windsor Park'
       ]
+    > &
+      Attribute.Required;
+    cancelled: Attribute.Boolean & Attribute.DefaultTo<false>;
+    complete: Attribute.Boolean & Attribute.DefaultTo<false>;
+    league: Attribute.Enumeration<
+      ['Premier League', 'Division One', 'Under 21', 'Women', 'Academy']
     > &
       Attribute.Required;
     createdAt: Attribute.DateTime;

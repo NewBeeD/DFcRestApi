@@ -4,7 +4,8 @@
   "info": {
     "singularName": "fixture",
     "pluralName": "fixtures",
-    "displayName": "fixture"
+    "displayName": "fixture",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -38,6 +39,25 @@
         "Benjamin's Park",
         "Laplaine Playing Field",
         "Windsor Park"
+      ],
+      "required": true
+    },
+    "cancelled": {
+      "type": "boolean",
+      "default": false
+    },
+    "complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "league": {
+      "type": "enumeration",
+      "enum": [
+        "Premier League",
+        "Division One",
+        "Under 21",
+        "Women",
+        "Academy"
       ],
       "required": true
     }
