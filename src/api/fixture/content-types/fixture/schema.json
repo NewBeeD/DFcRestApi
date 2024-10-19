@@ -60,6 +60,9 @@
         "Academy"
       ],
       "required": true
+    },
+    "statistics": {
+      "type": "json"
     }
   }
 }

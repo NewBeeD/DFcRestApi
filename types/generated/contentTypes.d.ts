@@ -876,6 +876,7 @@ export interface ApiFixtureFixture extends Schema.CollectionType {
       ['Premier League', 'Division One', 'Under 21', 'Women', 'Academy']
     > &
       Attribute.Required;
+    statistics: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
